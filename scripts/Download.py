@@ -43,7 +43,7 @@ external_output_dir = output_relative_dir + 'external_data'
     
     
 EXTERNAL_DATA_URL = {
-    
+    'nyc_population_by_community_districts.csv': "https://data.cityofnewyork.us/api/views/xi7c-iiu2/rows.csv?accessType=DOWNLOAD"
     }
 
 
