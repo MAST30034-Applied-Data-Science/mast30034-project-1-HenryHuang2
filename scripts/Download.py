@@ -47,8 +47,9 @@ external_output_dir = output_relative_dir + 'external_data_and_taxi_zones'
     
     
 EXTERNAL_DATA_URL = {
-    'nyc_population_by_community_districts.csv': "https://data.cityofnewyork.us/api/views/xi7c-iiu2/rows.csv?accessType=DOWNLOAD",
+    'nyc_population_by_neighborhood.csv': "https://data.cityofnewyork.us/api/views/swpk-hqdp/rows.csv?accessType=DOWNLOAD",
     'taxi_zone_lookup.csv': "https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv",
+    'nyc_2010_census.zip': "https://www1.nyc.gov/assets/planning/download/zip/data-maps/open-data/nynta2010_22b.zip",
     'taxi_zones.zip': "https://d37ci6vzurychx.cloudfront.net/misc/taxi_zones.zip"
     }
 
@@ -69,21 +70,28 @@ for dataset_name, url in EXTERNAL_DATA_URL.items():
     
 
 
-# Unzip taxi_zone data
+
+# make a directory to store the taxi zones shape file
 output_dir = output_relative_dir + 'external_data_and_taxi_zones' + "/taxi_zones"
 
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
-    
-taxi_zones_fp = "../data/raw/external_data_and_taxi_zones/taxi_zones.zip"
 
-with ZipFile(taxi_zones_fp, 'r') as zip_ref:
-    zip_ref.extractall(output_dir)
-    print(f'Completed extraction {taxi_zones_fp}')
-
-    
-# Remove the zipfile
-os.remove(external_output_dir + '/taxi_zones.zip')
+# Unzip files        
+target_dirs = ["/taxi_zones", "/nyc_2010_census"]
+for target_dir in target_dirs:
+    fp = "../data/raw/external_data_and_taxi_zones" + target_dir + ".zip"
+    with ZipFile(fp, 'r') as zip_ref:
+        # if the target is taxi_zones, extract files to its own folder
+        if target_dir == "/taxi_zones":
+            zip_ref.extractall(output_dir)
+            print(f'Completed extraction {fp}')
+        # else extract files to external_data_and_taxi_zones folder
+        else:
+            zip_ref.extractall(output_relative_dir + 'external_data_and_taxi_zones')
+            print(f'Completed extraction {fp}')
+    # Remove the zipfile
+    os.remove(fp)
 
 
 
