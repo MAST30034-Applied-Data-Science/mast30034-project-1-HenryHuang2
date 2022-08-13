@@ -54,6 +54,19 @@ EXTERNAL_DATA_URL = {
     }
 
 
+PROPERTY_SALES_DATA_URL_TEMPLATE = "https://www1.nyc.gov/assets/finance/downloads/pdf/rolling_sales/annualized-sales" # /2019/2019_manhattan.xlsx
+BOROUGHS = ['manhattan', 'bronx', 'queens', 'statenisland', 'brooklyn']
+
+for borough in BOROUGHS:
+    for year in YEARS:
+        if year=='2020' and borough == 'statenisland':
+            # The naming convention for staten island is changed in 2020
+            EXTERNAL_DATA_URL[f'{year}_{borough}.xlsx'] = PROPERTY_SALES_DATA_URL_TEMPLATE + f'/{year}/{year}_staten_island.xlsx'
+        else:
+            EXTERNAL_DATA_URL[f'{year}_{borough}.xlsx'] = PROPERTY_SALES_DATA_URL_TEMPLATE + f'/{year}/{year}_{borough}.xlsx'
+
+
+
 for dataset_name, url in EXTERNAL_DATA_URL.items():
     print(f"Begin {dataset_name}")
     
