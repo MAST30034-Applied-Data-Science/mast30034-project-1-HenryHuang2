@@ -8,7 +8,7 @@ from zipfile import ZipFile
 output_relative_dir = '../data/raw/'
 target_dir = 'yellow_taxi_data_'
 YEARS = ['2019', '2020']
-MONTHS = range(1, 13)
+years_dict = {'2019': range(1, 13), '2020': [1, 2]}
 
 for year in YEARS:
     if not os.path.exists(output_relative_dir + target_dir + year):
@@ -19,7 +19,8 @@ TLC_URL_TEMPLATE = "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripd
 
 for year in YEARS:
     print(f"Begin year {year}")
-    for month in MONTHS:
+    months = years_dict[year]
+    for month in months:
         month = str(month).zfill(2) 
         print(f"Begin month {month}")
     
