@@ -1,3 +1,5 @@
+# Code reference: MAST30034 Applied Data Science tutorial 1
+
 from urllib.request import urlretrieve
 import os
 from zipfile import ZipFile
@@ -59,7 +61,7 @@ BOROUGHS = ['manhattan', 'bronx', 'queens', 'statenisland', 'brooklyn']
 
 for borough in BOROUGHS:
     for year in YEARS:
-        if year=='2020' and borough == 'statenisland':
+        if year == '2020' and borough == 'statenisland':
             # The naming convention for staten island is changed in 2020
             EXTERNAL_DATA_URL[f'{year}_{borough}.xlsx'] = PROPERTY_SALES_DATA_URL_TEMPLATE + f'/{year}/{year}_staten_island.xlsx'
         else:
