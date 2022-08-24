@@ -7,14 +7,14 @@
 
 **Research Goal:** The Effect of Weather, Population, and Property Price on the Demand for Yellow Taxis in New York City
 
-**Timeline:** 2019
+**Timeline:** 2019 whole year.
 
 # Dataset
 
-TLC trip record data: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-New York City Population By Neighborhood Tabulation Areas: https://data.cityofnewyork.us/City-Government/New-York-City-Population-By-Neighborhood-Tabulatio/swpk-hqdp
-Annualized Sales Update: https://www1.nyc.gov/site/finance/taxes/property-annualized-sales-update.page
-New York City Weather: https://www.visualcrossing.com/weather/weather-data-services
+TLC trip record data: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page.
+New York City Population By Neighborhood Tabulation Areas: https://data.cityofnewyork.us/City-Government/New-York-City-Population-By-Neighborhood-Tabulatio/swpk-hqdp.
+Annualized Sales Update: https://www1.nyc.gov/site/finance/taxes/property-annualized-sales-update.page.
+New York City Weather: https://www.visualcrossing.com/weather/weather-data-services.
 
 # How to use this Repository
 
@@ -26,5 +26,5 @@ To run the pipeline, please visit the `scripts` directory and run the files in o
 5. `Statistical_Modelling.ipynb`: This notebook is used for modelling.
 
 # Some code reference
-Use of folium: https://towardsdatascience.com/folium-and-choropleth-map-from-zero-to-pro-6127f9e68564
-Use of Spark/statsmodel/geopands/folium: MAST30034 Tutorial (Really appreciate it!!)
+Use of folium: https://towardsdatascience.com/folium-and-choropleth-map-from-zero-to-pro-6127f9e68564.
+Use of Spark/statsmodel/geopands/folium: MAST30034 Tutorial (Really appreciate it!!).
