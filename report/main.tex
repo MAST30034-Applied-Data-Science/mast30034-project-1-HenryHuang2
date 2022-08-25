@@ -32,7 +32,7 @@ Student ID: 1071147 \\
 \maketitle
 
 \section{Introduction}
-New York City, the most populous mega-city in the world \cite{nycintro}, is famous for its fast-paced lifestyle and busy traffic. Under such background, the demand for efficient transportation is enormous. The New York City Taxi and Limousine Commission (TLC) has constantly updated trip records for multiple types of taxi and for-hire vehicles since 2009. This report will be based on the yellow taxi data in 2019\cite{tlcdata}, which contains a total number of 84,598,444 rows and 19 attributes.
+New York City, the most populous mega-city in the world \cite{nycintro}, is famous for its fast-paced lifestyle and busy traffic. Under such a background, the demand for efficient transportation is enormous. The New York City Taxi and Limousine Commission (TLC) has constantly updated trip records for multiple types of taxi and for-hire vehicles since 2009. This report will be based on the yellow taxi data in 2019\cite{tlcdata}, which contains a total number of 84,598,444 rows and 19 attributes.
 
 
 The research goal of the report is to investigate the \textbf{effect of weather}, \textbf{regional population}, and \textbf{regional price of the property} on the demand for yellow taxis in New York. \ul{This report will assume that all the datasets are correct and validated}.
@@ -84,7 +84,7 @@ The target audiences of this report are Medallion taxi drivers, taxi companies, 
 \end{itemize}
 \section{Preliminary Data Analysis}
 \subsection{Monthly trip count}
-Apparently, from Figure \ref{fig:monthlytripcount}, there is a significant drop between June and August, indicating that the number of trips can be negatively correlated with temperatures. But \textbf{there is no causal relationship between temperature and number of trips in a month}. In addition to weather data, we need more data to explain the drastic drop between June and August, for example, important events in New York City during that time.
+Apparently, from Figure \ref{fig:monthlytripcount}, there is a trend of downturn between June and August, indicating that the number of trips can be negatively correlated with temperatures. But \textbf{there is no causal relationship between temperature and number of trips in a month}. In addition to weather data, we need more data to explain the phenomenon, for example, important events in New York City during that time.
 \begin{figure}[h]
     \includegraphics[width=0.7\textwidth]{plots/trip_count_vs_month.png}
     \centering
@@ -92,7 +92,7 @@ Apparently, from Figure \ref{fig:monthlytripcount}, there is a significant drop 
     \label{fig:monthlytripcount}
 \end{figure}
 \subsection{Distribution of total trip count}
-As we can see from Figure \ref{fig:distributionoftripcount}, the total number of trip count per location is extremely right-skewed, which implies a log-transformation is suitable.
+As we can see from Figure \ref{fig:distributionoftripcount}, the total number of trip counts per location is extremely right-skewed, which implies a log transformation is suitable.
 \begin{figure}[h]
     \includegraphics[width=\textwidth]{plots/trip_count_distribution.png}
     \centering
@@ -104,7 +104,7 @@ As shown in Figure \ref{fig:democorr}, we can see that the correlation between p
 
 Some highly correlated attributes are depicted in Figure \ref{fig:weathercorr}, such as average feelslike, feelslike min, and feelslike max. We will retain densely the average feelslike since it is more representative of the temperature in a month. In addition, precipitation, cloud cover, precipitation cover, and visibility are highly correlated to each other. As stated in \cite{weathermetadata}, the precipitation cover is the amount of time and the cloud cover is the percentage of the sky covered by cloud, precipitation is retained because intuitively the heaviness of rain has a greater impact on people's decisions of whether to take a cab or not. Moreover, visibility may contain some extra information about fog, smog, or some such which is not covered by other attributes. 
 \subsubsection{Distribution of Attributes}
-The demographic attributes are slightly right-skewed, which may imply that a log-transformation can be applied \ref{fig:distributionofdemo}.
+The demographic attributes are slightly right-skewed, which may imply that a log transformation can be applied \ref{fig:distributionofdemo}.
 \subsubsection{Final Attributes} 
 The final set of attributes for weather model are ``feelslike'', ``precip'', ``windspeed'', ``visibility'', ``snow'' and ``snowdepth''. For demographic model, the final set of attributes are ``Price\_per\_square\_feet'', ``Population\_By\_LocationID'', ``Density\_per\_hectare'', ``ln\_Price\_per\_square\_feet'', ``ln\_Population'' and ``ln\_Density\_per\_hectare''.
 \begin{figure}[h]
@@ -126,7 +126,7 @@ The final set of attributes for weather model are ``feelslike'', ``precip'', ``w
     \label{fig:distributionofdemo}
 \end{figure}
 \section{Geospatial Visualisation}
-As we can see in the map \ref{fig:pickup}, the number of pickup in a location is very similar to its number of dropoff, which is not surprising. The most popular pick-up and drop-off location is around Manhattan, which suggests a positive relationship between number of trips and the density of pick-up or drop-off location. In addition, the number of pickup in JFK and Laguardia airport are relatively higher than their neighboring zones. For the purpose of this report, the three airports are removed because the number of pickup and dropoff is affected by their usage. 
+As we can see in the map \ref{fig:pickup}, the number of pickups in a location is very similar to the number of dropoffs, which is not surprising. The most popular pick-up and drop-off locations are around Manhattan, which suggests a positive relationship between the number of trips and the density of pick-up or drop-off locations. In addition, the number of pickups in JFK and Laguardia airports is relatively higher than their neighboring zones. For the purpose of this report, the three airports are removed because the number of pickups and dropoffs is affected by their usage. 
 \begin{figure}[h]
     \centering
     \begin{minipage}{0.45\textwidth}
@@ -138,7 +138,7 @@ As we can see in the map \ref{fig:pickup}, the number of pickup in a location is
     \begin{minipage}{0.45\textwidth}
         \centering
         \includegraphics[width=1.2\textwidth]{plots/Screen Shot 2022-08-23 at 3.10.19 pm.png}
-        \caption{Number of Dropoff for all Locations in 2019}
+        \caption{Number of Dropoffs for all Locations in 2019}
         \label{fig:dropoff}
     \end{minipage}
 \end{figure}
